@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/photosFragment">
+
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="kg.geektech.kotlinlesson3.ui.fragments.PhotosFragment"
+        android:label="fragment_photos"
+        tools:layout="@layout/fragment_photos" >
+        <action
+            android:id="@+id/action_galleryFragment_to_selectFragment"
+            app:destination="@id/selectedFragment">
+            <argument
+                android:name="Sheep"
+                app:argType="string[]" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/selectedFragment"
+        android:name="kg.geektech.kotlinlesson3.ui.fragments.SelectedFragment"
+        android:label="fragment_select"
+        tools:layout="@layout/fragment_selected">
+
+        <action
+            android:id="@+id/action_selectFragment_to_galleryFragment2"
+            app:destination="@id/photosFragment" />
+        <argument
+            android:name="Sheep"
+            android:defaultValue="@null"
+            app:argType="string[]"
+            app:nullable="true" />
+
+    </fragment>
+</navigation>
